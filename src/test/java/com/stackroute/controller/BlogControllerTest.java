@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,7 +99,7 @@ public class BlogControllerTest {
     public void givenBlogIdToDeleteThenShouldNotReturnDeletedBlog() throws Exception {
         when(blogService.deleteBlog(blog.getBlogId())).thenReturn(blog);
         mockMvc.perform(delete("/api/v1/blog/1")
-                .contentType(MediaType.APPLICATION_JSON)
+                .contentType(PageAttributes.MediaType.APPLICATION_JSON)
                 .content(asJsonString(blog)))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print());
     }

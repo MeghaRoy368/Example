@@ -1,14 +1,29 @@
 package com.stackroute.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /* Add Annotation to declare this class as a JPA Entity */
+@Entity
 public class Blog {
     /*Add Annotation to declare this field as a Unique Identifier */
+    @Id
     private int blogId;
     private String blogTitle;
     private String authorName;
     private String blogContent;
 
     /* Generate no-arg and parametrized consructor */
+
+    public Blog(int blogId, String blogTitle, String authorName, String blogContent) {
+        this.blogId = blogId;
+        this.blogTitle = blogTitle;
+        this.authorName = authorName;
+        this.blogContent = blogContent;
+    }
+
+    public Blog() {
+    }
 
     public int getBlogId() {
         return blogId;
